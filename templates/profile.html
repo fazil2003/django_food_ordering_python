@@ -1,0 +1,104 @@
+{%  load static %}
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Josefin+Sans&display=swap" rel="stylesheet">
+<!--
+Josefin Sans
+Dancing Script
+-->
+
+<link rel='stylesheet' href="{% static 'main.css'%}" type="text/css" />
+
+<div class='header'>
+<img src="{% static 'img/logo.png' %}" id='logo' />
+<span class='title'>food<b>Space</b></span><br>
+<span class='slogan'>Lets order Delicious Foods here...</span>
+</div>
+
+<img src="{% static 'img/chef.gif' %}" id='chef-img' />
+
+
+
+<div class='sidebar'>
+<button onclick="history.go(-1)" class='btn'>< Back</button><br>
+</div>
+
+
+<div class='container'>
+<form class="mykart" method="POST" action="update_profile">
+    {% csrf_token %}
+    <p class="mykart-p">{{ name }} - foodSpace</p>
+    <div class="mykart-top">
+        <input id="input" name="name" type="text" value="{{ name }}" placeholder="Username" required /><br>
+        <input id="input" name="phone" type="number" value="{{ phone }}" placeholder="Mobile No" required /><br>
+        <input id="input" name="address" type="text" value="{{ address }}" placeholder="Address" required /><br>
+        <input id="input" name="password" type="password" value="{{ password }}" placeholder="Password" required /><br>
+    </div><!--mykart top-->
+
+    <div class="mykart-bottom"><br>
+        <button type="submit" class="mykart-p1 p1">Update</button>
+    </div><!--mykart bottom-->
+
+</form>
+</div>
+
+
+
+<style>
+
+    #input{
+        font-size:22px;
+        padding:10px;
+        width:100%;
+        margin-top:10px;
+        border:1px solid indigo;
+        border-radius:30px;
+        outline:none;
+    }
+    a{
+        text-decoration:none;
+    }
+.mykart{
+    border:1px solid indigo;
+    padding:20px;
+    border-radius:20px;
+    width:400px;
+}
+.mykart-p{
+    background-color:indigo;
+    color:white;
+    padding:10px;
+    font-size:22px;
+    margin-top:-20px;
+    margin-left:-20px;
+    margin-right:-20px;
+    border-radius:20px 20px 0 0;
+    text-align:center;
+
+}
+.mykart-p1{
+    padding:10px;
+    font-size:22px;
+    margin-bottom:-10px;
+    border-radius:20px;
+    text-align:center;
+    transition:color 0.7s,background-color 0.7s;
+    width:100%;
+}
+.p1{
+    background-color:indigo;
+    color:white;
+    border:1px solid indigo;
+}
+
+.p1:hover{
+    background-color:white;
+    color:indigo;
+}
+
+
+    a,button{
+        outline:none;
+    }
+</style>
+
+

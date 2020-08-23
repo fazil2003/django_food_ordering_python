@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add to Kart</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+function func(){
+    location.href="home1?kart={{ kart }}"
+}
+func()
+</script>

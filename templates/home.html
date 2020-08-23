@@ -1,0 +1,106 @@
+{%  load static %}
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Josefin+Sans&display=swap" rel="stylesheet">
+<!--
+Josefin Sans
+Dancing Script
+-->
+
+<link rel='stylesheet' href="{% static 'main.css'%}" type="text/css" />
+
+<div class='header'>
+<img src="{% static 'img/logo.png' %}" id='logo' />
+<span class='title'>food<b>Space</b></span><br>
+<span class='slogan'>Lets order Delicious Foods here...</span>
+</div>
+
+<p id="top_details"><b>{{ username }}</b> - {{ phone }}</p>
+
+<img src="{% static 'img/chef.gif' %}" id='chef-img' />
+
+
+<div class='sidebar'>
+<button class='btn'>Home</button><br>
+<a href="mykart?kart={{ kart }}&total={{ total }}"><button class='btn'>My Cart <span id="total">{{ total }}</span></button></a><br>
+<a href="profile"><button class='btn'>Profile</button></a><br>
+<a href="other?choice=terms"><button class='btn'>Terms</button></a><br>
+<a href="other?choice=help"><button class='btn'>Help</button></a><br>
+<a href="logout"><button class='btn'>Logout</button></a><br>
+{% if last %}
+    <button onclick="history.go(-1)" class='btn'>Remove Last</button><br>
+{% endif %}
+</div>
+
+<div class='container'>
+{% for item in products %}
+    <div class='content'>
+    <img src="{% static item.image %}" id='food-img' /><br><br>
+    <span id='food-title'>{{ item.name }}</span><br>
+    <span id='food-description'>{{ item.hotel }}</span><br><br>
+    <span id='food-price'>₹{{ item.price }}</span><br>
+    <a href="add_to_kart?id={{ item.id }}&kart={{ kart }}"><button id='order-btn'>Add to Cart</button></a>
+    </div>
+{% endfor %}
+
+
+<style>
+    #top_details{
+        top:40px;
+        text-align:center;
+        width:400px;
+        left:50%;
+        margin-left:-200px;
+        position:relative;
+        color:indigo;
+        background:white;
+        font-size:22px;
+        border:1px solid white;
+        outline:none;
+        padding:15px;
+        border-radius:5px 20px 5px 20px;
+        transition:width 0.7s,color 0.7s,background 0.7s;
+    }
+
+#total{
+    color:white;
+    background-color:orange;
+    padding-top:5px;
+    padding-bottom:2.5px;
+    padding-right:7.5px;
+    padding-left:7.5px;
+    border-radius:50%;
+}
+    a,button{
+        outline:none;
+    }
+</style>
+
+    <!--
+<div class='content'>
+<img src='img/biryani.png' id='food-img' /><br><br>
+<span id='food-title'>Chicken Biryani</span><br>
+<span id='food-description'>Hotel Kaleeswara</span><br><br>
+<span id='food-price'>$5.99</span><br>
+<button id='order-btn'>Add to Cart</button>
+</div>
+
+
+<div class='content'>
+<img src='img/bbq_chicken.jpg' id='food-img' /><br><br>
+<span id='food-title'>BBQ Chicken</span><br>
+<span id='food-description'>Hotel Kaleeswara</span><br><br>
+<span id='food-price'>$5.99</span><br>
+<button id='order-btn'>Add to Cart</button>
+</div>
+
+
+<div class='content'>
+<img src='img/chicken_fried_rice.jpg' id='food-img' /><br><br>
+<span id='food-title'>Chicken Fried Rice</span><br>
+<span id='food-description'>Hotel Kaleeswara</span><br><br>
+<span id='food-price'>$5.99</span><br>
+<button id='order-btn'>Add to Cart</button>
+</div>
+-->
+
+</div>

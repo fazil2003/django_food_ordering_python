@@ -1,0 +1,148 @@
+{%  load static %}
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Josefin+Sans&display=swap" rel="stylesheet">
+<!--
+Josefin Sans
+Dancing Script
+-->
+
+<link rel='stylesheet' href="{% static 'main.css'%}" type="text/css" />
+
+<div class='header'>
+<img src="{% static 'img/logo.png' %}" id='logo' />
+<span class='title'>food<b>Space</b></span><br>
+<span class='slogan'>Lets order Delicious Foods here...</span>
+</div>
+
+<img src="{% static 'img/chef.gif' %}" id='chef-img' />
+
+
+<div class='sidebar'>
+<button onclick="history.go(-1)"  class='btn'>Home</button><br>
+<button class='btn'>My Cart <span id="total">{{ total }}</span></button><br>
+<a href="profile"><button class='btn'>Profile</button></a><br>
+<a href="other?choice=terms"><button class='btn'>Terms</button></a><br>
+<a href="other?choice=help"><button class='btn'>Help</button></a><br>
+<a href="logout"><button class='btn'>Logout</button></a>
+</div>
+
+<div class='container'>
+<div class="mykart">
+<p class="mykart-p">Bill Summary</p>
+<div class="mykart-top">
+{% for li in bill_amount %}
+    <p>{{ li }}</p>
+{% endfor %}
+
+</div><!--mykart top-->
+
+<div class="mykart-bottom">
+<p class="mykart-p1 p1">Total : ₹{{ sum }}</p>
+<a href="checkout?orders={{ bill_amount }}&sum={{ sum }}"><p class="mykart-p1 p2" >Checkout</p></a>
+<a href="https://paypal.me/fazil2003?locale.x=en_GB"><p class="mykart-p1 p3" >Pay with PayPal</p></a>
+
+</div><!--mykart bottom-->
+
+
+</div>
+
+
+<style>
+    a{
+        text-decoration:none;
+    }
+.mykart{
+    border:1px solid indigo;
+    padding:20px;
+    border-radius:20px;
+    width:400px;
+}
+.mykart-p{
+    background-color:indigo;
+    color:white;
+    padding:10px;
+    font-size:22px;
+    margin-top:-20px;
+    margin-left:-20px;
+    margin-right:-20px;
+    border-radius:20px 20px 0 0;
+    text-align:center;
+}
+.mykart-p1{
+    padding:10px;
+    font-size:22px;
+    margin-bottom:-10px;
+    border-radius:20px;
+    text-align:center;
+    transition:color 0.7s,background-color 0.7s;
+}
+.p1{
+    background-color:indigo;
+    color:white;
+    border:1px solid indigo;
+}
+.p2{
+    background-color:seagreen;
+    color:white;
+    border:1px solid seagreen;
+}
+.p3{
+    background-color:royalblue;
+    color:white;
+    border:1px solid royalblue;
+}
+.p1:hover{
+    background-color:white;
+    color:indigo;
+}
+.p2:hover{
+    background-color:white;
+    color:seagreen;
+}
+.p3:hover{
+    background-color:white;
+    color:royalblue;
+}
+#total{
+    color:white;
+    background-color:orange;
+    padding-top:5px;
+    padding-bottom:2.5px;
+    padding-right:7.5px;
+    padding-left:7.5px;
+    border-radius:50%;
+}
+    a,button{
+        outline:none;
+    }
+</style>
+
+    <!--
+<div class='content'>
+<img src='img/biryani.png' id='food-img' /><br><br>
+<span id='food-title'>Chicken Biryani</span><br>
+<span id='food-description'>Hotel Kaleeswara</span><br><br>
+<span id='food-price'>$5.99</span><br>
+<button id='order-btn'>Add to Cart</button>
+</div>
+
+
+<div class='content'>
+<img src='img/bbq_chicken.jpg' id='food-img' /><br><br>
+<span id='food-title'>BBQ Chicken</span><br>
+<span id='food-description'>Hotel Kaleeswara</span><br><br>
+<span id='food-price'>$5.99</span><br>
+<button id='order-btn'>Add to Cart</button>
+</div>
+
+
+<div class='content'>
+<img src='img/chicken_fried_rice.jpg' id='food-img' /><br><br>
+<span id='food-title'>Chicken Fried Rice</span><br>
+<span id='food-description'>Hotel Kaleeswara</span><br><br>
+<span id='food-price'>$5.99</span><br>
+<button id='order-btn'>Add to Cart</button>
+</div>
+-->
+
+</div>

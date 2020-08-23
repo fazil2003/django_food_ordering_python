@@ -1,0 +1,116 @@
+{%  load static %}
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Josefin+Sans&display=swap" rel="stylesheet">
+<!--
+Josefin Sans
+Dancing Script
+-->
+
+<link rel='stylesheet' href="{% static 'main.css'%}" type="text/css" />
+
+<div class='header'>
+<img src="{% static 'img/logo.png' %}" id='logo' />
+<span class='title'>food<b>Space</b></span><br>
+<span class='slogan'>Lets order Delicious Foods here...</span>
+</div>
+
+<img src="{% static 'img/chef.gif' %}" id='chef-img' />
+
+
+
+<p id="top_details">Total Earnings - <b>₹{{ total }}</b></p>
+
+
+<div class='sidebar'>
+<button class='btn'>Recent Orders ></button><br>
+</div>
+
+<div class='container'>
+    {% for i in q %}
+        <div id="content_admin">
+        <p id="c-title">{{ i.name }} - {{ i.phone }}</p><br>
+        <p id="c-desc">{{ i.orders }}</p><br>
+        <p id="c-desc1">₹{{ i.sum }}</p><br>
+        <a href="complete_order?id={{ i.id }}&sum={{ i.sum }}"><button id="complete_btn">Complete Order</button></a>
+        </div><br>
+    {% endfor %}
+</div>
+
+
+
+<style>
+    #c-desc1{
+        font-size:30px;
+        font-weight:bold;
+        margin-top:-10px;
+        margin-bottom:-5px;
+    }
+    #top_details{
+        top:40px;
+        text-align:center;
+        width:400px;
+        left:50%;
+        margin-left:-200px;
+        position:relative;
+        color:indigo;
+        background:white;
+        font-size:22px;
+        border:1px solid white;
+        outline:none;
+        padding:15px;
+        border-radius:5px 20px 5px 20px;
+        transition:width 0.7s,color 0.7s,background 0.7s;
+    }
+
+    #complete_btn{
+        padding:10px;
+        border-radius:10px;
+        background-color:seagreen;
+        color:white;
+        font-size:18px;
+        outline:none;
+        border:1px solid seagreen;
+        width:250px;
+        transition:color 0.7s,background-color 0.7s;
+    }
+    #complete_btn:hover{
+        color:seagreen;
+        background-color:white;
+    }
+    #content_admin{
+        border:1px solid indigo;
+        padding:10px;
+        border-radius:15px;
+        width:800px;
+    }
+
+    #c-title{
+        color:white;
+        font-size:20px;
+        padding:10px;
+        margin:-10px;
+        border-radius:15px 15px 0 0;
+        background:indigo;
+    }
+
+    #input{
+        font-size:22px;
+        padding:10px;
+        width:100%;
+        margin-top:10px;
+        border:1px solid indigo;
+        border-radius:30px;
+        outline:none;
+    }
+    a{
+        text-decoration:none;
+    }
+
+
+
+    a,button{
+        outline:none;
+    }
+</style>
+
+
